@@ -12,7 +12,7 @@ This mini-course is divided into six parts:
 
 1. What is the cloud?
 2. Virtual machines and networking
-3. Container
+3. Containers
 4. Serverless and APIs
 5. Storage and databases
 6. DevOps
