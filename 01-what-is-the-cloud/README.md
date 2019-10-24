@@ -54,14 +54,14 @@ Over time, providers like Microsoft, Google, and Amazon Web Services have increa
 ![Microsoft: Types of cloud services](readme-microsoft-types-of-cloud-services.png)
 _Image from Microsoft (https://azure.microsoft.com/en-us/overview/what-is-cloud-computing/)_
 
-It's important to understand that that "evolution" means less in terms of "later means better", and more about operational concerns regarding the type of skills and investment you want to make and reqwuirements you might have on operating and possibly owning the deeper layers. While a classic Infrastructure-as-a-service architecture might have its perfect cases still, the benefits of going serverless for example means that you can almost immediately put things in "production mode" across the world, but only by giving up a degree of control to gain that speed.
+It's important to understand that that "evolution" means less in terms of "later means better", and more about operational concerns regarding the type of skills and investment you want to make and requirements you might have on operating and possibly owning the deeper layers. While a classic Infrastructure-as-a-service architecture might have its perfect cases still, the benefits of going serverless for example means that you can almost immediately put things in "production mode" across the world, but only by giving up a degree of control to gain that speed.
 
 ![Cloudflare: Types of cloud services](readme-cloudflare-saas-paas-iaas-diagram.png)
 _Image from Cloudflare (https://www.cloudflare.com/learning/cloud/what-is-the-cloud/)_
 
 ## What is the Cloud?
 
-While a cloud provider may have hundreds of services or offerings, they are usually really confined to a small set of bigger areas.
+While a cloud provider may have hundreds of services or offerings, they are usually really segmented into a small set of areas.
 
 ### Compute
 
