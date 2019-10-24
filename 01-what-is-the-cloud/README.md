@@ -19,7 +19,7 @@ Before we begin, a few words about me. I'm [Mikael Vesavuori](https://mikaelvesa
 
 Source code to follow along is available at [https://github.com/mikaelvesavuori/cloud-developer-basics](https://github.com/mikaelvesavuori/cloud-developer-basics).
 
-_This mini-course is not sponsored or connected to Google, other than us using their services._
+_This mini-course is not sponsored by or in any way connected to Google, other than us using their services._
 
 ---
 
