@@ -1,0 +1,11 @@
+{
+	"name": "cloud-developer-basics-startup-demo",
+	"version": "1.0.0",
+	"description": "Cloud Developers Basic, demo backend function to get content from DatoCMS",
+	"author": "Mikael Vesavuori",
+	"main": "index.js",
+	"license": "ISC",
+	"dependencies": {
+		"node-fetch": "^2.6.0"
+	}
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no, user-scalable=yes"
+		/>
+		<title>Cloud Developer Basics micro demo</title>
+		<style>
+			html {
+				background: url(https://storage.cloud.google.com/cloud-developer-basics/humblebee.jpg)
+					no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+
+			html,
+			body {
+				font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+					'Helvetica Neue', Arial, sans-serif;
+				height: 100vh;
+			}
+
+			h1 {
+				color: white;
+				text-align: center;
+				font-size: 64px;
+				text-shadow: 0 0 50px #000;
+			}
+
+			input {
+				width: 50%;
+				margin: 10% 25%;
+
+				font-size: 24px;
+				padding: 12px;
+				border-radius: 12px;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				outline: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>What's your name, cloud ninja?</h1>
+		<input type="name" name="name" placeholder="Your name here" />
+		<canvas id="my-canvas"></canvas>
+
+		<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+		<!-- Firebase Realtime Database -->
+		<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+
+		<script>
+			// Your web app's Firebase configuration
+			const firebaseConfig = {
+				apiKey: 'AIzaSyAphIke3dJIjdkcYLEsyzSQ7gZkxelYrww',
+				authDomain: 'cloud-developer-basics-efe39.firebaseapp.com',
+				databaseURL: 'https://cloud-developer-basics-efe39.firebaseio.com',
+				projectId: 'cloud-developer-basics-efe39',
+				storageBucket: 'cloud-developer-basics-efe39.appspot.com',
+				messagingSenderId: '100570484461',
+				appId: '1:100570484461:web:55d6f63479e070836ec6e4'
+			};
+
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+
+			// Get a reference to the database service
+			const database = firebase.database();
+
+			function writeUserData(name) {
+				firebase
+					.database()
+					.ref('cloudninjas/' + name)
+					.set({
+						name,
+						timestamp: Date.now()
+					});
+			}
+		</script>
+
+		<!-- Application code -->
+		<script>
+			const ENDPOINT = 'https://europe-west1-cloud-developer-basics.cloudfunctions.net/getContent';
+			let myName = '';
+
+			const INPUT = document.querySelector('input');
+			INPUT.addEventListener('keyup', function(event) {
+				myName = document.querySelector('input').value;
+
+				if (event.key === 'Enter') {
+					setContent();
+					removeInput();
+				}
+			});
+
+			async function setContent() {
+				return await fetch(ENDPOINT, {
+					method: 'POST',
+					body: JSON.stringify({
+						name: myName
+					})
+				})
+					.then(res => res.json())
+					.then(res => updateDom(res))
+					.then(res => confetti.render())
+					.then(res => writeUserData(myName)) // Write to Firebase
+					.catch(error => {
+						console.error(error);
+					});
+			}
+
+			function updateDom(string) {
+				const ELEMENT = document.querySelector('h1');
+				ELEMENT.innerText = string;
+			}
+
+			function removeInput() {
+				const INPUT = document.querySelector('input');
+				INPUT.remove();
+			}
+		</script>
+
+		<!-- Confetti.js -->
+		<script>
+			!(function(e, t) {
+				'object' == typeof exports && 'undefined' != typeof module
+					? (module.exports = t())
+					: 'function' == typeof define && define.amd
+					? define(t)
+					: ((e = e || self).ConfettiGenerator = t());
+			})(this, function() {
+				'use strict';
+				return function(e) {
+					var i = {
+						target: 'confetti-holder',
+						max: 80,
+						size: 1,
+						animate: !0,
+						props: ['circle', 'square', 'triangle', 'line'],
+						colors: [[165, 104, 246], [230, 61, 135], [0, 199, 228], [253, 214, 126]],
+						clock: 25,
+						interval: null,
+						rotate: !1,
+						width: window.innerWidth,
+						height: window.innerHeight
+					};
+					e &&
+						(e.target && (i.target = e.target),
+						e.max && (i.max = e.max),
+						e.size && (i.size = e.size),
+						null != e.animate && (i.animate = e.animate),
+						e.props && (i.props = e.props),
+						e.colors && (i.colors = e.colors),
+						e.clock && (i.clock = e.clock),
+						e.width && (i.width = e.width),
+						e.height && (i.height = e.height),
+						null != e.rotate && (i.rotate = e.rotate));
+					var t = document.getElementById(i.target),
+						a = t.getContext('2d'),
+						r = [];
+					function o(e, t) {
+						e || (e = 1);
+						var r = Math.random() * e;
+						return t ? Math.floor(r) : r;
+					}
+					var n = i.props.reduce(function(e, t) {
+						return e + (t.weight || 1);
+					}, 0);
+					function s() {
+						var e =
+							i.props[
+								(function() {
+									for (var e = Math.random() * n, t = 0; t < i.props.length; ++t) {
+										var r = i.props[t].weight || 1;
+										if (e < r) return t;
+										e -= r;
+									}
+								})()
+							];
+						return {
+							prop: e.type ? e.type : e,
+							x: o(i.width),
+							y: o(i.height),
+							src: e.src,
+							radius: o(4) + 1,
+							size: e.size,
+							rotate: i.rotate,
+							line: Math.floor(o(65) - 30),
+							angles: [o(10, !0) + 2, o(10, !0) + 2, o(10, !0) + 2, o(10, !0) + 2],
+							color: i.colors[o(i.colors.length, !0)],
+							rotation: (o(360, !0) * Math.PI) / 180,
+							speed: o(i.clock / 7) + i.clock / 30
+						};
+					}
+					function l(e) {
+						switch (
+							((a.fillStyle = a.strokeStyle =
+								'rgba(' + e.color + ', ' + (3 < e.radius ? 0.8 : 0.4) + ')'),
+							a.beginPath(),
+							e.prop)
+						) {
+							case 'circle':
+								a.moveTo(e.x, e.y),
+									a.arc(e.x, e.y, e.radius * i.size, 0, 2 * Math.PI, !0),
+									a.fill();
+								break;
+							case 'triangle':
+								a.moveTo(e.x, e.y),
+									a.lineTo(e.x + e.angles[0] * i.size, e.y + e.angles[1] * i.size),
+									a.lineTo(e.x + e.angles[2] * i.size, e.y + e.angles[3] * i.size),
+									a.closePath(),
+									a.fill();
+								break;
+							case 'line':
+								a.moveTo(e.x, e.y),
+									a.lineTo(e.x + e.line * i.size, e.y + 5 * e.radius),
+									(a.lineWidth = 2 * i.size),
+									a.stroke();
+								break;
+							case 'square':
+								a.save(),
+									a.translate(e.x + 15, e.y + 5),
+									a.rotate(e.rotation),
+									a.fillRect(-15 * i.size, -5 * i.size, 15 * i.size, 5 * i.size),
+									a.restore();
+								break;
+							case 'svg':
+								a.save();
+								var t = new Image();
+								t.src = e.src;
+								var r = e.size || 15;
+								a.translate(e.x + r / 2, e.y + r / 2),
+									e.rotate && a.rotate(e.rotation),
+									a.drawImage(t, (-r / 2) * i.size, (-r / 2) * i.size, r * i.size, r * i.size),
+									a.restore();
+						}
+					}
+					return {
+						render: function() {
+							(t.width = i.width), (t.height = i.height), (r = []);
+							for (var e = 0; e < i.max; e++) r.push(s());
+							return requestAnimationFrame(function e() {
+								for (var t in (a.clearRect(0, 0, i.width, i.height), r)) l(r[t]);
+								!(function() {
+									for (var e = 0; e < i.max; e++) {
+										var t = r[e];
+										i.animate && (t.y += t.speed),
+											t.rotate && (t.rotation += t.speed / 35),
+											((0 <= t.speed && i.height < t.y) || (t.speed < 0 && t.y < 0)) &&
+												((r[e] = t),
+												(r[e].x = o(i.width, !0)),
+												(r[e].y = t.speed < 0 ? parseFloat(i.height) : -10));
+									}
+								})(),
+									i.animate && requestAnimationFrame(e);
+							});
+						},
+						clear: function() {
+							(i.animate = !1),
+								clearInterval(i.interval),
+								requestAnimationFrame(function() {
+									a.clearRect(0, 0, t.width, t.height);
+									var e = t.width;
+									(t.width = 1), (t.width = e);
+								});
+						}
+					};
+				};
+			});
+
+			const confettiSettings = { target: 'my-canvas' };
+			const confetti = new ConfettiGenerator(confettiSettings);
+		</script>
+	</body>
+</html>
