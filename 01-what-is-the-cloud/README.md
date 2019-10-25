@@ -178,6 +178,8 @@ Go to [the Firebase console](https://console.firebase.google.com/u/0/) and setup
 
 Navigate to [Cloud Storage](https://console.cloud.google.com/storage).
 
+A storage bucket is used to contain files of any kind. This is the cloud-native way of handling files, even if there still exists traditional file stores as well, in most clouds. We will use one to contain our frontend assets and to serve it to visitors.
+
 - Create a new bucket
 - Give it a globally unique name and put it in a (single) region close to you, in our case `europe-west1`
 - Set access to _Set permissions uniformly at bucket-level_
@@ -192,7 +194,7 @@ Navigate into the bucket. Click the _Overview_ tab and **note down the _Link URL
 
 We are soon going to create a backend function. For security's sake we will preemptively create a service account (a programmatic user) with only the rights to invoke (run) a function, but nothing else. This is a very good security practice so it makes sense to learn it already!
 
-Go to "IAM & admin", and into the panel _Service accounts_. Create a new service account, and give it a suitable rememberable name. For the role, give it _Cloud Functions Invoker_. This ensures it can only call functions, nothing else.
+Go to "IAM & admin" (IAM stands for Identity & Access Management), and into the panel _Service accounts_. Create a new service account, and give it a suitable rememberable name. For the role, give it _Cloud Functions Invoker_. This ensures it can only call functions, nothing else.
 
 Later, when you want to use a service account programmatically, you will probably want to download the credential set in JSON format. This time, though, you don't need it.
 
@@ -205,10 +207,12 @@ I have supplied several test functions that you can find in the folder `/demo-cl
 When you feel ready to deploy our `getContent` function (needed to continue with the next steps), go ahead and:
 
 - Create a new function
-- Set timeout to 10 seconds as you don't want a serverless function to run for very long
+- Set the timeout value to 10 seconds as you don't want a serverless function to run for very long
 - Ensure that _Name_ and _Function to execute_ are set to `getContent`, and that _Region_ is set to `europe-west1` under _Advanced options_ (located in the far bottom)
 - Choose `Node.js 10`
 - For _Service account_, point to the account that you created in the last step
+
+We want to co-locate the bucket and function so they may run at optimal speed. For more complex use cases, we can also negate any costs for ingoing or outgoing traffic by this kind of colocation.
 
 Please note that the `getContent` function is set up to fetch content from DatoCMS. When you read this at some point in the future, this particular token and/or DatoCMS project may no longer be valid. To replicate the same circumstances, then in DatoCMS you would:
 
@@ -239,11 +243,11 @@ Drag-and-drop `frontend/index.html` and `frontend/humblebee.jpg` into the bucket
 
 ### Step 11: View logs
 
-Navigate to [Stackdriver logging](https://console.cloud.google.com/logs/). Filter for the function called `getContent`. Witness the glory of having a centralized nice-looking surface that gives you a peek under the almighty cloud hood.
+Navigate to [Stackdriver logging](https://console.cloud.google.com/logs/). Filter for the function called `getContent` using the pop-out panels. Witness the glory of having a centralized nice-looking surface that gives you a peek under the almighty cloud hood.
 
-### Step 12: Revisit Firebase and check your new visits!
+### Step 12: Revisit Firebase and validate that your visits are saved in the database
 
-Firebase should now contain the name and timestamp of any sent input from the `index.html` site.
+In Firebase, navigate to the Database tab. You should see that Firebase contains the name and timestamp of any sent input from the `index.html` site.
 
 And with this, you are done! Give yourself a pat on the shoulder, you've deserved it.
 
