@@ -241,6 +241,10 @@ Drag-and-drop `frontend/index.html` and `frontend/humblebee.jpg` into the bucket
 
 Navigate to [Stackdriver logging](https://console.cloud.google.com/logs/). Filter for the function called `getContent`. Witness the glory of having a centralized nice-looking surface that gives you a peek under the almighty cloud hood.
 
+### Step 12: Revisit Firebase and check your new visits!
+
+Firebase should now contain the name and timestamp of any sent input from the `index.html` site.
+
 And with this, you are done! Give yourself a pat on the shoulder, you've deserved it.
 
 ## Further studies
