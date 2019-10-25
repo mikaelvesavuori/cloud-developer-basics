@@ -178,6 +178,7 @@ Go to [the Firebase console](https://console.firebase.google.com/u/0/) and setup
 
 Navigate to [Cloud Storage](https://console.cloud.google.com/storage).
 
+- Create a new bucket
 - Give it a globally unique name and put it in a (single) region close to you, in our case `europe-west1`
 - Set access to _Set permissions uniformly at bucket-level_
 - Create the bucket with any other settings set to their defaults
