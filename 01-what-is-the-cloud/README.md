@@ -206,7 +206,7 @@ When you feel ready to deploy our `getContent` function (needed to continue with
 
 - Create a new function
 - Set timeout to 10 seconds as you don't want a serverless function to run for very long
-- Ensure that _Name_ and _Function to execute_ are set to `getContent`, and that _Region_ is set to `europe-west1` under _Advanced options_
+- Ensure that _Name_ and _Function to execute_ are set to `getContent`, and that _Region_ is set to `europe-west1` under _Advanced options_ (located in the far bottom)
 - Choose `Node.js 10`
 - For _Service account_, point to the account that you created in the last step
 
