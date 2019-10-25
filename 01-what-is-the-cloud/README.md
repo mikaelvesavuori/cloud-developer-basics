@@ -158,7 +158,7 @@ Open up a Cloud Shell instance. Try using it like your regular command line, dra
 
 Go to [APIs and services](https://console.cloud.google.com/apis/library) and enable APIs for services that are not already active:
 
-- Firebase
+- Firebase Management API
 - Cloud Functions
 - Cloud Storage
 
