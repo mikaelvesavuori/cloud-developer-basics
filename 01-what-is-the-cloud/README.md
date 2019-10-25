@@ -228,7 +228,7 @@ Before you continue, make sure to **note the function's endpoint URL**.
 
 ### Step 9: Update index.html
 
-In `index.html`, update the endpoint path (`const ENDPOINT`) and the image URL (`background: url({URL_PATH})`) to your own values.
+In `index.html`, update the endpoint path (`const ENDPOINT`) and the image URL (`background: url({URL_PATH})`) to your own values. The image URL will be an absolute path, looking something like `https://storage.googleapis.com/{PROJECT_ID}/humblebee.jpg`.
 
 ### Step 10: Upload frontend files into bucket and visit the page
 
