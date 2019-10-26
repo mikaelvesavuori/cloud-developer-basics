@@ -164,7 +164,7 @@ Go to [APIs and services](https://console.cloud.google.com/apis/library) and ena
 
 ### Step 5: Create a Firebase database
 
-Google's own description of Firebase is that it "is Google's mobile platform that helps you quickly develop high-quality apps and grow your business". It has a somewhat confusing brand since it overlaps many of Google Cloud's own capabilities. For many typical applications, Firebase would probably fulfill all requirements without ever using Google Cloud itself. For our intents, we are only interested in the realtime database, which is the Firebase's marquee feature.
+Google's own description of Firebase is that it "is Google's mobile platform that helps you quickly develop high-quality apps and grow your business". It has a somewhat confusing brand since it overlaps many of Google Cloud's own capabilities. For many typical applications, Firebase would probably fulfill all requirements without ever using Google Cloud itself. For our intents, we are only interested in the realtime database, which is Firebase's marquee feature.
 
 Go to [the Firebase console](https://console.firebase.google.com/u/0/) and begin setting up your database.
 
