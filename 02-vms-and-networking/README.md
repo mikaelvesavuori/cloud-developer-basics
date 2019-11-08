@@ -70,7 +70,7 @@ On top of the networks you will want to add security measures—In GCP these are
 ![Compute Engine features. Screenshot from Google](readme-gce-features.png)
 _Compute Engine features. Screenshot from Google (https://cloud.google.com/compute/)_
 
-The very short way of summarizing Compute Engine is that it is veeeeeeeeery flexible. In the end, a GCE instance is very little less than a regular computer (minus of course the fact that the instance is virtual, maintained and sandboxed to some degree, etc etc), so you can pretty much do anything on it that you would on your own computer. Personally I have not done any high-performance jobs on one, but this is where you'd go for those concerns. Where I find Compute Engine to have its magic is when you need an actual computer and you have a wider scale of tasks to do. In that case a regular `n1-standard-1` or even the free `f1-micro` is going to get you a long way.
+The short way of summarizing Compute Engine is that it is veeeeeeeeery flexible. In the end, a GCE instance is very little less than a regular computer (minus of course the fact that the instance is virtual, maintained and sandboxed to some degree, etc etc), so you can pretty much do anything on it that you would on your own computer. Personally I have not done any high-performance jobs on one, but this is where you'd go for those concerns. Where I find Compute Engine to have its magic is when you need an actual computer and you have a wider scale of tasks to do. In that case a regular `n1-standard-1` or even the free `f1-micro` is going to get you a long way.
 
 ### App Engine: Platform-as-a-service
 
@@ -169,7 +169,7 @@ Go to [APIs and services](https://console.cloud.google.com/apis/library) and ena
 
 The Flex environment gives a fair bit of...well...flexibility, but also adds some work on your end. It is however very convenient in that it accepts using Docker images to specify how to bundle your application.
 
-_We will deploy the webserver to App Engine according to the Dockerfile present in the webserver folder. Don't worry if you are new to Docker, we will learn more in the next workshop. For App Engine to work, you need to have a configuration/definition file_
+_We will deploy the webserver to App Engine according to the Dockerfile present in the webserver folder. Don't worry if you are new to Docker, we will learn more in the next workshop. For App Engine to work, you need to have a configuration/definition file._
 
 Copy `gae/flex/app.yaml` into the root of the webserver folder. Now, run `gcloud app deploy` and answer "yes" to the question that you're prompted with. Wait for a few minutes as the version gets deployed.
 
