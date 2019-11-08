@@ -44,9 +44,9 @@ As you learned in the last session, there are several models for how cloud servi
 - Serverless,
 - Software-as-a-service, and so on.
 
-Virtualization as a technology is not bound to the service model. Instead, it's bound to factors such as how long-living (persistent) the instance is.
+Virtualization as a technology is not bound to the service model. Instead, it's bound to factors such as how long-living (persistent) the instance is. In this session we will work a bit with the two "classic" models, IAAS and PAAS.
 
-In this session we will work a bit with the two "classic" models, IAAS and PAAS. Both offer a high degree of flexibility and persistence, with GCE being billed by the second and GAE billed on an hourly basis. They offer a free tier as well. These types of products offer a somewhat wide scope of configuration possibilities, meaning you will have to choose a machine type. A higher-configuration machine type will allow greater performance, but for a higher cost. Sometimes you may want to go higher in performance to allow yourself to use more, but lesser instances.
+Both offer a high degree of flexibility and persistence, with GCE being billed by the second and GAE billed on an hourly basis. They offer a free tier as well. These types of products offer a somewhat wide scope of configuration possibilities, meaning you will have to choose a machine type. A higher-configuration machine type will allow greater performance, but for a higher cost. Sometimes you may want to go higher in performance to allow yourself to use fewer instances, and in some cases it's smart to use a higher number of small machines for offloading purposes. Both GAE and GCE offer a high degree of flexibility and persistence, with GCE being billed by the second and GAE billed on an per-second or per-hour basis. GCE is covered to a small part within Google's free tier as well.
 
 ### ...but no virtualization without networking
 
@@ -70,7 +70,7 @@ On top of the networks you will want to add security measures—In GCP these are
 ![Compute Engine features. Screenshot from Google](readme-gce-features.png)
 _Compute Engine features. Screenshot from Google (https://cloud.google.com/compute/)_
 
-The very short way of summarizing Compute Engine is that it is veeeeeeeeery flexible. In the end, a GCE instance is very little less than a regular computer (minus of course the fact that the instance is virtual, maintained and sandboxed to some degree, etc etc), so you can pretty much anything on it that you would on your own computer. Personally I have not done any high-performance jobs on one, but this is where you'd go for those concerns. Where I find Compute Engine to have its magic is when you need an actual computer and you have a wider scale of tasks to do. In that case a regular `n1-standard-1` or even the free `f1-micro` is going to get you a long way.
+The very short way of summarizing Compute Engine is that it is veeeeeeeeery flexible. In the end, a GCE instance is very little less than a regular computer (minus of course the fact that the instance is virtual, maintained and sandboxed to some degree, etc etc), so you can pretty much do anything on it that you would on your own computer. Personally I have not done any high-performance jobs on one, but this is where you'd go for those concerns. Where I find Compute Engine to have its magic is when you need an actual computer and you have a wider scale of tasks to do. In that case a regular `n1-standard-1` or even the free `f1-micro` is going to get you a long way.
 
 ### App Engine: Platform-as-a-service
 
@@ -79,7 +79,7 @@ _App Engine features. Screenshot from Google (https://cloud.google.com/appengine
 
 I am putting App Engine in the PAAS category, even though Google brands it as serverless. I do this because of historical reasons, as contenders like [Heroku](https://www.heroku.com) and [DigitalOcean](https://www.digitalocean.com) have been offering similar services since way back when PAAS was the "big" thing.
 
-App Engine is fully managed, and can auto-scale based on usage, and can do so according to your own policy if you want it to max out, for example, at a reasonable cost/performance point. It's also very easy to do things like A/B testing, splitting, and monitoring with GAE .At the end of the day, you only have to specify an instance type and that would suffice for App Engine, who would bring you on an absolutely honey moon but with less of the feeling of being completely broke at the end (as long as you DO specify a maximum for scaling).
+App Engine is fully managed, and can auto-scale based on usage, and can do so according to your own policy if you want it to max out, for example, at a reasonable cost/performance point. It's also very easy to do things like A/B testing, splitting, and monitoring with GAE. At the end of the day, you only have to specify an instance type and that would suffice for App Engine, who would bring you on an absolutely honey moon but with less of the feeling of being completely broke at the end (as long as you DO specify a maximum for scaling).
 
 **Standard vs Flex**
 [App Engine offers two environments with a range of differences](https://cloud.google.com/appengine/docs/the-appengine-environments). You would probably do good to stick with standard if you are using a supported runtime and expect bursty patterns of no/low and high volume traffic. It's also likely cheaper in most cases. The Flex environment, however, offers greater degree of freedom in that you can mount Docker images with any language in it, and directly use Compute Engine resources.
@@ -148,7 +148,7 @@ Premium or Standard variants. Google offers to handle your traffic within its ow
 
 ## Workshop
 
-We are going to run a webserver in both the serverless/PAAS offering App Engine (using Standard and Flex modes) as well as in the IAAS offering Compute Engine. We will end with a brief exercise in configuring a basic setup with public and private networks.
+We are going to run a webserver in both the serverless/PAAS offering App Engine (using Standard and Flex modes) as well as in the IAAS offering Compute Engine. We will end with a brief exercise in configuring a basic setup with a public and a private instance.
 
 ### Step 1: Clone the `node-simple-webserver` repo
 
