@@ -4,6 +4,10 @@
 	"description": "Cloud Developers Basic, demo backend function to get content from DatoCMS",
 	"author": "Mikael Vesavuori",
 	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mikaelvesavuori/cloud-developer-basics.git"
+	},
 	"license": "ISC",
 	"dependencies": {
 		"node-fetch": "^2.6.0"
