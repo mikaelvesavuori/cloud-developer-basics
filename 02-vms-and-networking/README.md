@@ -269,8 +269,8 @@ Listed here are recommended additional resources and tasks to improve your under
 - [CIDR.xyz](http://cidr.xyz)
 - [Network Service Tiers](https://cloud.google.com/network-tiers)
 - [Google Codelabs: Bastion Host](https://codelabs.developers.google.com/codelabs/gcp-infra-bastion-host/index.html)
-- [https://codelabs.developers.google.com/codelabs/cloud-subnetworks/index.html?index=..%2F..index#0](https://codelabs.developers.google.com/codelabs/cloud-subnetworks/index.html?index=..%2F..index#0)
-- [https://codelabs.developers.google.com/codelabs/gcp-aws-custom-networks/index.html?#0](https://codelabs.developers.google.com/codelabs/gcp-aws-custom-networks/index.html?#0)
+- [Customize Network Topology with Subnetworks](https://codelabs.developers.google.com/codelabs/cloud-subnetworks/index.html?index=..%2F..index#0)
+- [Secure Instances and Apps with Custom Networks](https://codelabs.developers.google.com/codelabs/gcp-aws-custom-networks/index.html?#0)
 - [Virtual Private Cloud (VPC) network overview](https://cloud.google.com/vpc/docs/vpc#subnetworks_and_firewall_rules)
 
 ### Qwiklabs
