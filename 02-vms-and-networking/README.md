@@ -25,13 +25,12 @@ _This mini-course is not sponsored by or in any way connected to Google, other t
 
 ## Learning objectives and services covered
 
-At the end of this session you will have enough understanding and know-how to set up an application using App Engine and Compute Engine, you will understand the central concerns of virtualization, and you will be able to provision a VPC with firewall rules to secure your instance.
+At the end of this session you will have enough understanding and know-how to set up an application using App Engine and Compute Engine, you will understand the central concerns of virtualization, and you will be able to provision firewall rules to secure your App Engine instance.
 
 Services covered:
 
 - App Engine
 - Compute Engine
-- VPC
 
 ## Virtualization is the core of the cloud...
 
@@ -241,7 +240,7 @@ Listed here are recommended additional resources and tasks to improve your under
 
 ### Explore more
 
-- Go to [VPC Networks](https://console.cloud.google.com/networking/networks/list) and create your own networks and subnets; then start placing machines in them. Try to see what happens if you have machines in different networks.
+- While we did use firewall rules, which are a feature of VPC, we used them via App Engine in the session. Now, take the next step: Go to [VPC Networks](https://console.cloud.google.com/networking/networks/list) and create your own networks and subnets, then start placing machines in them. Try to see what happens if you have machines in different networks.
 - Set up a Compute Engine instance template and toy around with it. It's a neat way of creating similar (though individual) replicas of a configuration. You can also string them together as a Managed Instance Group which adds several scaling benefits like load balancing, auto-healing, and auto-scaling. There is a script ready to use in `gcloud` or in the Cloud Shell, located at `gce/instance-from-instance-template.sh`. See below for more references and links regarding instance groups and templates.
 
 ### References
