@@ -162,11 +162,11 @@ rm build-gcp.sh
 rm -rf serverless
 ```
 
-Next, run the command to build a tagged image: `docker build -t gcr.io/cloud-developer-basics/node-webserver-demo .`. The dot at the end means the "target", which in this case resolves to the current directory.
+Next, run the command to build a tagged image: `docker build -t gcr.io/${PROJECT_ID}/${APP_NAME} .`. The dot at the end means the "target", which in this case resolves to the current directory.
 
 When the operation is completed, run `docker images`. You should see that you now have Docker images for Node and the app itself residing on disk.
 
-Now, you should try to run the contents of the image. Do this by typing in `docker run --rm -p 80:80 gcr.io/cloud-developer-basics/node-webserver-demo`; it will listen for input. To launch a browser with the contents, click the _Web preview_ button in the upper right of the console. The `-p` parameter (or `--port`) allows you to map a port from an exposed port to some other one. In this case we are simply specifying port 80 to be port 80.
+Now, you should try to run the contents of the image. Do this by typing in `docker run --rm -p 80:80 gcr.io/${PROJECT_ID}/${APP_NAME}`; it will listen for input. To launch a browser with the contents, click the _Web preview_ button in the upper right of the console. The `-p` parameter (or `--port`) allows you to map a port from an exposed port to some other one. In this case we are simply specifying port 80 to be port 80.
 
 Also good to know is that you can see running Docker processing with `docker ps`. And when stopping, it is enough for you to only specify the first few characters of the container ID, such as `docker stop a101` if you have a container ID `a10170f0cd75`.
 
@@ -178,7 +178,7 @@ Google Container Registry is similar to many other such registries. They provide
 
 Cloud Shell comes with a number of tools ready, Docker being one of them. You have the possibility of using plain Docker if you want, or use Google Cloud Build if you want to use that process. Cloud Build will be used in later sessions, but for this time let's just do it the standard way like you can do on your own computer.
 
-Without further ado, push the container with `docker push gcr.io/cloud-developer-basics/node-webserver-demo`. It gets uploaded in layers and those are usually cached in one way or another so the first time will take longer than subsequent pushes.
+Without further ado, push the container with `docker push gcr.io/${PROJECT_ID}/${APP_NAME}`. It gets uploaded in layers and those are usually cached in one way or another so the first time will take longer than subsequent pushes.
 
 ### Step 4: Take a look at your container
 
@@ -186,7 +186,7 @@ Go to [Container Registry](https://console.cloud.google.com/gcr/images/) and tak
 
 ### Step 5: Start a Compute Engine webserver with your new image
 
-In Compute Engine, try to remember what you learned in the last workshop. Your goal is to configure a VM, and specify your freshly-minted image as the VM image. Check the box for _Deploy a container image to this VM instance_ in the Compute Engine creation panel, making sure to add the GCR address in the _Container image_ input box; it should look something like `gcr.io/cloud-developer-basics/node-webserver-demo`. Help is available [here](https://cloud.google.com/compute/docs/containers/deploying-containers) if you need it.
+In Compute Engine, try to remember what you learned in the last workshop. Your goal is to configure a VM, and specify your freshly-minted image as the VM image. Check the box for _Deploy a container image to this VM instance_ in the Compute Engine creation panel, making sure to add the GCR address in the _Container image_ input box; it should look something like `gcr.io/${PROJECT_ID}/${APP_NAME}`. Help is available [here](https://cloud.google.com/compute/docs/containers/deploying-containers) if you need it.
 
 When it's done, visit the machine's endpoint. When you see it all chugging along, take the time to stop or remove the VM as we won't use it more than this.
 
@@ -229,7 +229,7 @@ In the _Clusters_ view, click _Create cluster_. Give it a meaningful name, such 
 
 I suggest opening the bottom _Availability, networking, security and additional features_ menu to get a view of the types of concerns you may be dealing with when configuring Kubernetes. Note that for production cases you should probably go for a regional solution with nodes over more than a single zone. Since this is for pure testing that is a bit of a non-concern. Don't make any actual changes for now! When you are done, click _Create_. Wait for a few minutes while it works its magic.
 
-Click _Deploy_ when the cluster is up. Choose an existing image and specify the URL for your image in Container Registry—you can also use the _Select_ option to show the exact images. Your URL should be in the format `gcr.io/cloud-developer-basics/node-webserver-demo@sha256:d83dfc80dd397065b0af1d7c58961c2ace49e5a9e0419ce885253aeaf84c78ca`. Continue, and then just give the deployment a good name, like `webserver`. Deploy. Once again, wait.
+Click _Deploy_ when the cluster is up. Choose an existing image and specify the URL for your image in Container Registry—you can also use the _Select_ option to show the exact images. Your URL should be in the format `gcr.io/${PROJECT_ID}/${APP_NAME}@sha256:d83dfc80dd397065b0af1d7c58961c2ace49e5a9e0419ce885253aeaf84c78ca`. Continue, and then just give the deployment a good name, like `webserver`. Deploy. Once again, wait.
 
 We will now make the server publicly accessible. Under the _Workloads_ tab, click on your webserver. Click the button named _Expose_. Set _Port_ to 80 and _Target port_ to 8080. The first port is the publicly accessed one, and the target port should point to whatever port the continaer itself is exposing. After setting the ports, click _Expose_. Shortly there will be an Ingress service (of type "Load balancer") available that handles that traffic. Under the _Services & Ingress_ tab, look for an IP address in the _Endpoints_ column. Click it and verify that the webserver is functioning. If it's working, now append `/hello` to the URL and check if it's working. You should receive a `{"hello":"world"}` object. If all of this works, congratulations!
 
