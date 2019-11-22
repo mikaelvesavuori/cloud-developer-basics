@@ -134,11 +134,15 @@ The Service is an abstraction that provides a way of accessing the set of pods v
 
 ## Workshop
 
-In this session we are going to containerize a Node application, push it to a registry for consumption, and then run the container on three different platforms: Compute Engine, Cloud Run, and Google's managed Kubernetes Engine. You should be able to get App Engine working easily as well, if you completed the last workshop. This time, we will also do all of our code and work within the Cloud Shell.
+In this session we are going to containerize a Node application, push it to a registry for consumption, and then run the container on three different platforms: Compute Engine, Cloud Run, and Google's managed Kubernetes Engine. You should be able to get App Engine working easily as well, if you completed the last workshop.
+
+**This time, we will also do all of our code and work within the Cloud Shell.**
+
+If you are intent on doing this locally, you should probably also make sure to run `gcloud auth configure-docker` so that Docker works.
 
 ### Step 1: Enable Kubernetes Engine API and set up variables
 
-Log in to Google Cloud Platform. Then go to [APIs & Services](https://console.cloud.google.com/apis/library?cloudshell=true&project=cloud-developer-basics) and enable the Kubernetes Engine API and the Cloud Run API. It
+Log in to Google Cloud Platform. Then go to [APIs & Services](https://console.cloud.google.com/apis/library?cloudshell=true) and enable the Kubernetes Engine API and the Cloud Run API. It
 
 Also export a global variable to ease the use of some future commands we will run, by doing:
 
