@@ -1,0 +1,24 @@
+service: # The service name is the top-level name attached to this stack
+  name: cdb04api # BUG: Must not contain dashes, else will fail in nested Gaxios dependency?
+
+plugins: # A list of plugins; we're just using the regular Google Cloud Functions package here
+  - serverless-google-cloudfunctions
+
+provider:
+  name: google # The cloud provider
+  region: europe-west1 # OPTIONAL: Edit if you want
+
+  # THESE TWO MUST BE UPDATED BY YOU!
+  project: 'cloud-developer-basics' # EDIT THIS to your value
+  credentials: ~/.gcloud/{KEYFILE}.json # EDIT THIS to your value
+
+  runtime: nodejs10 # Specifying a global runtime, where all of our code is Node 10 (can also be done per-function, but not relevant for us)
+  memorySize: 256 # Specify memory size; will add performance for a slightly higher cost
+  timeout: 10s # Max time until timeout; should be short in serverless environments
+
+functions:
+  api: # This will be the endpoint name, so always use meaningful names here
+    handler: api # This must point to the handler function! Google Cloud Functions default to index.js, which in our case exports a function called' api'
+    events:
+      - http: api # This event name doesn't really do much, so just default to same as above
+        method: POST # Allowed methods; because this is a GraphQL API it's all POST
