@@ -103,7 +103,7 @@ By some, it's seen as an anti-pattern to let one function call another. This is 
 
 ### APIs: From REST to GraphQL
 
-An API is a common way of accessing backend functionality
+An API is a common way of accessing backend functionality.
 
 When you've used ("consumed") or written APIs before, that was probably in REST. REST is a type of format that uses the basic HTTP verbs to specify what you receive from a given endpoint. Another common pattern is to specify individual endpoints per type of transaction, such as `getCustomers` or `createOrder`. The problem of the classical REST endpoints has been that you soon have a great number of endpoints that may very well do their job, but have no way of easily stitching pieces of data together, and are unable to finely specify what data you expect.
 
@@ -211,6 +211,8 @@ When you've downloaded the file, place it in a secure location. The default expe
 Best practice for security is to have minimum permissions per application: this is called the **principle of least privilege**. In a serverless functions environment it makes sense to give permissions on a per-function level. This way you can revoke rights where it makes sense, rather than doing a blanket revoke which can cause a lot of issues.
 
 _For this session, we will reuse the same keyfile (effectively: the same service account) between both the labeling service and the API, as that cuts a bit of time—but beware that for production, you might not want to share keys/roles like that._
+
+_Also, go to the [APIs & Services](https://console.cloud.google.com/apis/library) and enable the APIs for *Deployment Manager v2 API* and *Cloud Vision API*._
 
 ### Step 4: Deploy the labeling service with Serverless Framework
 
