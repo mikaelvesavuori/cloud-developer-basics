@@ -13,7 +13,7 @@ provider:
   credentials: ~/.gcloud/{KEYFILE}.json # EDIT THIS to your value
 
   runtime: nodejs10 # Specifying a global runtime, where all of our code is Node 10 (can also be done per-function, but not relevant for us)
-  memorySize: 256 # Specify memory size; will add performance for a slightly higher cost
+  memorySize: 1024 # Specify memory size; will add performance for a slightly higher cost
   timeout: 10s # Max time until timeout; should be short in serverless environments
 
 functions:
