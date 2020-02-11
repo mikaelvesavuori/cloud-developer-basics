@@ -227,7 +227,7 @@ Copy-paste the code in `backend/index.js` into the view. Do the same for `backen
 
 ```
 {
-	"name": "SomeName Nameson"
+  "name": "SomeName Nameson"
 }
 ```
 

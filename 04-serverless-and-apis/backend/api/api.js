@@ -6,8 +6,6 @@ const { typeDefs, resolvers } = require('./schema');
 const apolloServer = new ApolloServer({
 	typeDefs,
 	resolvers,
-	playground: true,
-	introspection: true,
 	resolverValidationOptions: {
 		requireResolversForResolveType: false
 	}
@@ -15,8 +13,8 @@ const apolloServer = new ApolloServer({
 
 const server = apolloServer.createHandler({
 	cors: {
-		origin: '*',
-		credentials: true
+		origin: '*' // This is just for playing with; please set this to your actual allowed domain
+		//credentials: true // If you need to authenticate
 	}
 });
 

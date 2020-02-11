@@ -213,10 +213,10 @@ Make sure to set your own values or variables below, then just run:
 
 ```
 gcloud beta run deploy $APP_NAME \
-	--image gcr.io/$PROJECT_ID/$APP_NAME:latest \
-	--platform managed \
-	--region $REGION \
-	--allow-unauthenticated
+  --image gcr.io/$PROJECT_ID/$APP_NAME:latest \
+  --platform managed \
+  --region $REGION \
+  --allow-unauthenticated
 ```
 
 Creation will take a minute or two. The script is also available in `cloud-run/deploy.sh`.
@@ -245,9 +245,9 @@ Create a cluster by running:
 
 ```
 gcloud container clusters create ${CLUSTER_NAME} \
-	--num-nodes 3 \
-	--machine-type g1-small \
-	--zone ${CLUSTER_ZONE}
+  --num-nodes 3 \
+  --machine-type g1-small \
+  --zone ${CLUSTER_ZONE}
 ```
 
 It will start creating the cluster, which will take a few minutes.

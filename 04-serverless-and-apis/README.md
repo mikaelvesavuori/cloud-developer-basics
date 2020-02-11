@@ -228,7 +228,7 @@ Send a payload with the body containing an `imageUrl` key with the value being t
 
 ```
 {
-	"imageUrl": "https://uploads1.wikiart.org/images/giorgio-de-chirico/mystery-and-melancholy-of-a-street-1914.jpg"
+  "imageUrl": "https://uploads1.wikiart.org/images/giorgio-de-chirico/mystery-and-melancholy-of-a-street-1914.jpg"
 }
 ```
 
