@@ -488,6 +488,7 @@ More in-depth exercises would be:
 - [Get started with Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart)
 - [Perform simple and compound queries in Cloud Firestore](https://firebase.google.com/docs/firestore/query-data/queries)
 - [Aggregation queries](https://firebase.google.com/docs/firestore/solutions/aggregation)
+- [Cloud Firestore Data Modeling (Google I/O'19)](https://www.youtube.com/watch?v=lW7DWV2jST0)
 - [Advanced Data Modeling With Firestore by Example](https://angularfirebase.com/lessons/advanced-firestore-nosql-data-structure-examples/)
 - [The trade-offs between performance, cost, and security with Firestore](https://medium.com/firebase-developers/the-tradeoffs-between-performance-cost-and-security-with-firestore-ef72ba43f316)
 - [Model Relational Data in Firestore NoSQL](https://www.youtube.com/watch?v=jm66TSlVtcc)
