@@ -1,0 +1,29 @@
+service: # The service name is the top-level name attached to this stack
+  name: deleteimagetrigger # BUG: Must not contain dashes, else will fail in nested Gaxios dependency?
+
+plugins: # A list of plugins; we're just using the regular Google Cloud Functions package here
+  - serverless-google-cloudfunctions
+
+provider:
+  name: google # The cloud provider
+  region: europe-west1 # OPTIONAL: Edit if you want
+
+  # THESE TWO MUST BE UPDATED BY YOU!
+  project: '' # EDIT THIS to your value
+  credentials: ~/.gcloud/{KEYFILE}.json # EDIT THIS to your value
+
+  runtime: nodejs10 # Specifying a global runtime, where all of our code is Node 10 (can also be done per-function, but not relevant for us)
+  memorySize: 256 # Specify memory size; will add performance for a slightly higher cost
+  timeout: 10s # Max time until timeout; should be short in serverless environments
+  environment:
+    GCLOUD_PROJECT: ${self:provider.project}
+    DOCUMENT_PATH: 'artworks/{artworkUuid}' # EDIT THIS ONLY IF YOU HAVE CHANGED
+    BUCKET_NAME: '' # EDIT THIS to your value
+
+functions:
+  deleteImage:
+    handler: deleteImage
+    events:
+      - event:
+          eventType: providers/cloud.firestore/eventTypes/document.delete
+          resource: projects/${self:provider.project}/databases/(default)/documents/${self:provider.environment.DOCUMENT_PATH}
