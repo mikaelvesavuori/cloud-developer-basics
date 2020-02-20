@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: 05-storage-and-databases/example-art-data.txt
+  checksum: 6fc3421f38ffca39bc104c1fde9b0b9eb8c0c5b978af6dbb9dd4ffc74d6d9511
+  ignore_detectors: []
+scopeconfig: []
