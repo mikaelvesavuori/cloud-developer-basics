@@ -10,16 +10,18 @@ const storage = new Storage();
  *
  * @async
  * @function
- * @param {string} uuid - The unique UUID of the artwork
- * @returns {string} - Returns UUID of deleted artwork
- * @throws {error} - Throws error if it fails to delete from Firestore
+ * @param {string} imageUrl - The URL for the original image
+ * @param {string} imageName - The unique UUID image name
+ * @param {string} bucketName - The name of the bucket
+ * @returns {WritableStream} - Returns stream
  */
-exports.uploadImage = async (image, imageName, bucketName) => {
+exports.uploadImage = async (imageUrl, imageName, bucketName) => {
 	const bucket = storage.bucket(bucketName);
 	const file = bucket.file(imageName);
+
 	const writeStream = file.createWriteStream();
 
-	return await fetch(image).then(res => {
+	return await fetch(imageUrl).then(res => {
 		res.body.pipe(writeStream);
 	});
 };

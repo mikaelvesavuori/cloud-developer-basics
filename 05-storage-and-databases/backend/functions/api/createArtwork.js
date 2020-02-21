@@ -5,6 +5,7 @@ const firestore = new Firestore();
 const uuidv4 = require('uuid/v4');
 
 const { uploadImage } = require('../image/uploadImage');
+const { makePublic } = require('../image/makePublic');
 const { invokeFunction } = require('../../helpers/invokeFunction');
 const { REGION, PROJECT_ID, BUCKET_NAME, COLLECTION_NAME } = require('../../configuration');
 
@@ -25,6 +26,8 @@ exports.createArtwork = async ({ artist, imageUrl, title, year, createdByUser })
 	if (artist && imageUrl && title && year && createdByUser) {
 		const UUID = uuidv4();
 
+		const MAKE_PUBLIC = true;
+
 		const FILE_FORMAT_SPLIT_POINT = imageUrl.lastIndexOf('.');
 		const FILE_FORMAT = imageUrl.slice(FILE_FORMAT_SPLIT_POINT, imageUrl.length);
 		const IMAGE_NAME = `${UUID}${FILE_FORMAT}`;
@@ -43,6 +46,12 @@ exports.createArtwork = async ({ artist, imageUrl, title, year, createdByUser })
 		const upload = await new Promise(async (resolve, reject) => {
 			try {
 				await uploadImage(imageUrl, IMAGE_NAME, BUCKET_NAME);
+
+				// Allow public access to file?
+				if (MAKE_PUBLIC) {
+					await makePublic(BUCKET_NAME, IMAGE_NAME);
+				}
+
 				resolve();
 			} catch (error) {
 				reject(error);

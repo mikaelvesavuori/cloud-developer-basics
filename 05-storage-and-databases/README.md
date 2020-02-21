@@ -190,7 +190,7 @@ Data storage where many different unordered types of data are stored. Also used 
 
 In the workshop we'll set up an updated version of the API in workshop 4, together with a database trigger function, and a new storage bucket. We will also work completely within the Google Cloud environment as well as in the editor mode.
 
-_If you haven't already, go to the [APIs & Services](https://console.cloud.google.com/apis/library) view and enable the APIs for *Deployment Manager v2 API*, *Cloud Vision API* and *Google Cloud Firestore API*._
+_If you haven't already, go to the [APIs & Services](https://console.cloud.google.com/apis/library) view and enable the APIs for *Deployment Manager v2 API*, *Cloud Functions API*, *Cloud Vision API* and *Google Cloud Firestore API*._
 
 ### Step 1: Create Google Cloud Storage bucket
 
