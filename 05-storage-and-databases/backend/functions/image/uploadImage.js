@@ -15,13 +15,13 @@ const storage = new Storage();
  * @param {string} bucketName - The name of the bucket
  * @returns {WritableStream} - Returns stream
  */
-exports.uploadImage = async (imageUrl, imageName, bucketName) => {
+exports.uploadImage = (imageUrl, imageName, bucketName) => {
 	const bucket = storage.bucket(bucketName);
 	const file = bucket.file(imageName);
 
 	const writeStream = file.createWriteStream();
 
-	return await fetch(imageUrl).then(res => {
+	return fetch(imageUrl).then(res => {
 		res.body.pipe(writeStream);
 	});
 };

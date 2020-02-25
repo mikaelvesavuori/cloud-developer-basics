@@ -1,0 +1,37 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    id: Install
+    args:
+      - "install"
+    dir: 'src'
+  - name: "gcr.io/cloud-builders/npm"
+    id: Test
+    args:
+      - "test"
+    dir: 'src'
+  - name: "gcr.io/cloud-builders/docker"
+    id: Build
+    args:
+      [
+        "build",
+        "-t",
+        "gcr.io/cloud-developer-basics/webserver",
+        ".",
+      ]
+  - name: "gcr.io/cloud-builders/docker"
+    id: Push
+    args: ["push", "gcr.io/cloud-developer-basics/webserver"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: Rollout
+    args:
+      [
+        "beta",
+        "compute",
+        "instance-groups",
+        "managed",
+        "rolling-action",
+        "restart",
+        "webserver-instance-group",
+        "--region=europe-north1"
+      ]
+images: ["gcr.io/cloud-developer-basics/webserver"]

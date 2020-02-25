@@ -1,0 +1,13 @@
+- name: "gcr.io/cloud-builders/gcloud"
+  id: Rollout
+  args:
+    [
+      "beta",
+      "compute",
+      "instance-groups",
+      "managed",
+      "rolling-action",
+      "restart",
+      "webserver-instance-group",
+      "--region=europe-north1"
+    ]
