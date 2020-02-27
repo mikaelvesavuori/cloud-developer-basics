@@ -42,7 +42,7 @@ Operations is what happens when code meets reality. This is the state when code 
 
 Operations gets a bad rap for various reasons but is mission critical for anyone making software. Even a lowly freelance front-end developer is doing ops when they help their local Buffy The Vampire Slayer club stay up and running under the load of 50+ geeks editing fan fiction on your Wiki platform. The thing with ops is that _what it was_ is different from _what it's becoming_. Lots of the churn and manual work often attributed to ops can now (and should!) be automated or reduced. Big cloud providers like Google make this—if not easy as pie—then at least more than manageable.
 
-The DevOps movement is a broad term that tries to package both the hard (software, standards) and soft (people, culture, organization) factors involving in being a performant, well-functioning software delivery company. To get to a state of complete software delivery nirvana, one of the core ideas is to enable developers to contribute meaningfully through the full lifecycle, including areas like:
+The DevOps movement is a broad term that tries to package both the hard (software, standards) and soft (people, culture, organization) factors involved in being a performant, well-functioning software delivery company. To get to a state of complete software delivery nirvana, one of the core ideas is to enable developers to contribute meaningfully through the full lifecycle, including areas like:
 
 - **Provisioning**: infrastructure resources and services
 - **Deployment**: commit, build, deploy, serve
