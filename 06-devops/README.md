@@ -178,7 +178,6 @@ This workshop will be strictly within Google Cloud and the Cloud Shell, and will
 _If you haven't already, go to the [APIs & Services](https://console.cloud.google.com/apis/library) view and enable the APIs for *Deployment Manager v2 API* and *Cloud Build*._
 
 _Also check in IAM & Admin that the member {NUMBER}@cloudbuild.gserviceaccount.com has the following roles:_
-_- App Engine Admin_
 _- Cloud Build Service Account_
 _- Compute Instance Admin (v1)_
 _- Compute Load Balancer Admin_
