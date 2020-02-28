@@ -175,6 +175,15 @@ While the above may sound daunting, many of these things we've already done befo
 
 This workshop will be strictly within Google Cloud and the Cloud Shell, and will primarily involve scripting rather than GUI-based actions. Scripting or automation in general is the "real" way this type of activity would happen, so this will give you a better contextual understanding as well.
 
+_If you haven't already, go to the [APIs & Services](https://console.cloud.google.com/apis/library) view and enable the APIs for *Deployment Manager v2 API* and *Cloud Build*._
+
+_Also check in IAM & Admin that the member {NUMBER}@cloudbuild.gserviceaccount.com has the following roles:_
+_- App Engine Admin_
+_- Cloud Build Service Account_
+_- Compute Instance Admin (v1)_
+_- Compute Load Balancer Admin_
+_- Service Account User_
+
 ### Step 1: Export variables
 
 Log into Google Cloud and open Cloud Shell.
