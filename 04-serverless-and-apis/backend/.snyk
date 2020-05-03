@@ -1,0 +1,42 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - eslint > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-functions > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - serverless-google-cloudfunctions > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - eslint > table > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - serverless-google-cloudfunctions > async > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > inquirer > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > superstatic > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - prettier-eslint > eslint > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - prettier-eslint > vue-eslint-parser > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - prettier-eslint > eslint > table > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > archiver > async > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > google-auto-auth > async > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > portfinder > async > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > superstatic > nash > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - prettier-eslint > eslint > inquirer > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
+    - firebase-tools > superstatic > glob-slasher > toxic > lodash:
+        patched: '2020-05-03T23:47:47.469Z'
