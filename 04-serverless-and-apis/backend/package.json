@@ -1,34 +1,40 @@
 {
-	"name": "cloud-developer-basics-04-api",
-	"version": "1.0.0",
-	"engines": {
-		"node": "10"
-	},
-	"description": "Cloud Developer Basics #4, based on ArtCollector demo API (artcollector-backend-gcp)",
-	"author": "Mikael Vesavuori",
-	"main": "index.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/mikaelvesavuori/cloud-developer-basics.git"
-	},
-	"license": "ISC",
-	"devDependencies": {
-		"eslint": "^6.5.0",
-		"eslint-config-prettier": "^6.5.0",
-		"eslint-plugin-security": "^1.4.0",
-		"prettier": "^1.18.2",
-		"prettier-eslint": "^9.0.0"
-	},
-	"dependencies": {
-		"@google-cloud/pubsub": "^1.1.5",
-		"apollo-server-cloud-functions": "^2.9.7",
-		"firebase-admin": "^8.7.0",
-		"firebase-functions": "^3.3.0",
-		"firebase-tools": "^7.6.2",
-		"graphql": "^14.5.8",
-		"graphql-type-json": "^0.3.0",
-		"node-fetch": "^2.6.0",
-		"serverless-google-cloudfunctions": "^2.3.3",
-		"uuid": "^3.3.3"
-	}
+  "name": "cloud-developer-basics-04-api",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10"
+  },
+  "description": "Cloud Developer Basics #4, based on ArtCollector demo API (artcollector-backend-gcp)",
+  "author": "Mikael Vesavuori",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikaelvesavuori/cloud-developer-basics.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.5.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-security": "^1.4.0",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0"
+  },
+  "dependencies": {
+    "@google-cloud/pubsub": "^1.1.5",
+    "apollo-server-cloud-functions": "^2.9.7",
+    "firebase-admin": "^8.7.0",
+    "firebase-functions": "^3.3.0",
+    "firebase-tools": "^7.6.2",
+    "graphql": "^14.5.8",
+    "graphql-type-json": "^0.3.0",
+    "node-fetch": "^2.6.0",
+    "serverless-google-cloudfunctions": "^2.3.3",
+    "uuid": "^3.3.3",
+    "snyk": "^1.317.0"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
