@@ -21,13 +21,13 @@
   },
   "dependencies": {
     "apollo-server-cloud-functions": "^2.10.1",
-    "firebase-admin": "^8.9.2",
+    "firebase-admin": "^9.0.0",
     "firebase-functions": "^3.3.0",
     "firebase-tools": "^7.13.1",
     "gaxios": "^2.3.1",
     "graphql": "^14.6.0",
     "node-fetch": "^2.6.0",
-    "serverless-google-cloudfunctions": "^2.4.0",
+    "serverless-google-cloudfunctions": "^3.1.0",
     "uuid": "^3.4.0",
     "snyk": "^1.316.2"
   },
