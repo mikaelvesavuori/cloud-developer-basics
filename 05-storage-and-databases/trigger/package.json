@@ -1,17 +1,11 @@
 {
-  "name": "cloud-developer-basics-firestore-trigger",
-  "version": "1.0.0",
-  "dependencies": {
-    "firebase-admin": "^8.9.2",
-    "firebase-functions": "^3.3.0",
-    "firebase-tools": "^7.13.1",
-    "@google-cloud/storage": "^4.3.1",
-    "serverless-google-cloudfunctions": "^2.4.0",
-    "snyk": "^1.317.0"
-  },
-  "scripts": {
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
-  },
-  "snyk": true
+	"name": "cloud-developer-basics-firestore-trigger",
+	"version": "1.0.0",
+	"dependencies": {
+		"firebase-admin": "^9.2.0",
+		"firebase-functions": "^3.11.0",
+		"firebase-tools": "^8.10.0",
+		"@google-cloud/storage": "^5.3.0",
+		"serverless-google-cloudfunctions": "^3.1.1"
+	}
 }

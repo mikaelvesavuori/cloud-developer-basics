@@ -1,39 +1,33 @@
 {
-  "name": "cloud-developer-basics-05-api",
-  "version": "1.0.0",
-  "engines": {
-    "node": "10"
-  },
-  "description": "Cloud Developer Basics #5, based on ArtCollector demo API (artcollector-backend-gcp)",
-  "author": "Mikael Vesavuori",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikaelvesavuori/cloud-developer-basics.git"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-security": "^1.4.0",
-    "prettier": "^1.19.1",
-    "prettier-eslint": "^9.0.1"
-  },
-  "dependencies": {
-    "apollo-server-cloud-functions": "^2.10.1",
-    "firebase-admin": "^8.9.2",
-    "firebase-functions": "^3.3.0",
-    "firebase-tools": "^7.13.1",
-    "gaxios": "^2.3.1",
-    "graphql": "^14.6.0",
-    "node-fetch": "^2.6.0",
-    "serverless-google-cloudfunctions": "^2.4.0",
-    "uuid": "^3.4.0",
-    "snyk": "^1.316.2"
-  },
-  "scripts": {
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
-  },
-  "snyk": true
+	"name": "cloud-developer-basics-05-api",
+	"version": "1.0.0",
+	"engines": {
+		"node": "10"
+	},
+	"description": "Cloud Developer Basics #5, based on ArtCollector demo API (artcollector-backend-gcp)",
+	"author": "Mikael Vesavuori",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mikaelvesavuori/cloud-developer-basics.git"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^7.9.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-security": "^1.4.0",
+		"prettier": "^2.1.2",
+		"prettier-eslint": "^11.0.0"
+	},
+	"dependencies": {
+		"apollo-server-cloud-functions": "^2.17.0",
+		"firebase-admin": "^9.2.0",
+		"firebase-functions": "^3.11.0",
+		"firebase-tools": "^8.10.0",
+		"gaxios": "^3.2.0",
+		"graphql": "^15.3.0",
+		"node-fetch": "^2.6.1",
+		"serverless-google-cloudfunctions": "^3.1.1",
+		"uuid": "^8.3.0"
+	}
 }
